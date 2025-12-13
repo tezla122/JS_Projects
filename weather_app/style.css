@@ -1,0 +1,172 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    /* Default background before image loads */
+    background: #333; 
+    background-size: cover;
+    background-position: center;
+    background-transition: background-image 0.5s ease-in-out;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    overflow: hidden; /* Stop scrolling */
+}
+
+/* Dark overlay so text pops */
+.overlay {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.4); /* 40% dark tint */
+    z-index: -1;
+}
+
+.app-wrap {
+    width: 90%;
+    max-width: 380px;
+    /* Glassmorphism */
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 25px;
+    padding: 30px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+}
+
+header { width: 100%; margin-bottom: 40px; }
+
+.search-box {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    outline: none;
+    background: rgba(255, 255, 255, 0.25);
+    border-radius: 15px;
+    color: #fff;
+    font-size: 18px;
+    transition: 0.3s;
+}
+
+.search-box::placeholder { color: rgba(255, 255, 255, 0.7); }
+.search-box:focus { background: rgba(255, 255, 255, 0.5); }
+
+.location .city {
+    text-align: center;
+    font-size: 36px;
+    font-weight: 700;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+}
+
+.location .date {
+    text-align: center;
+    font-size: 16px;
+    margin-bottom: 20px;
+    font-weight: 300;
+}
+
+.current {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.current .temp {
+    font-size: 80px;
+    font-weight: 800;
+    text-shadow: 4px 4px 10px rgba(0,0,0,0.3);
+}
+
+.current .weather {
+    font-size: 28px;
+    font-weight: 500;
+    text-transform: capitalize;
+    margin-bottom: 10px;
+}
+
+/* New Extra Info Section */
+.more-info {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255,255,255,0.3);
+}
+
+.info-block {
+    text-align: center;
+    width: 50%;
+}
+
+.info-block .label {
+    font-size: 14px;
+    opacity: 0.8;
+}
+
+.info-block .val {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+@keyframes slideInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(50px) scale(0.9);    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+
+@keyframes fadeInGentle {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+@keyframes float {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px);    }
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+.app-wrap {
+        animation: slideInUp 1s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+   
+}
+
+.weather-body {
+    animation: fadeInGentle 0.8s ease-out forwards;
+}
+
+
+.current .temp {
+       animation: float 6s ease-in-out infinite;
+    display: inline-block; 
+}
+
+.search-box:focus {
+    transform: scale(1.05);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);}
+
+.search-box {
+    transition: all 0.3s ease;
+}
+
